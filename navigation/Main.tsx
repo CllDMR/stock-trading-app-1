@@ -1,23 +1,18 @@
 import React from "react";
-import {
-  Ionicons,
-  Entypo,
-  MaterialCommunityIcons,
-  MaterialIcons
-} from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 
-import FeedStack from "./main_stacks/FeedStack";
-import VideoStack from "./main_stacks/VideoStack";
-import NotificationStack from "./main_stacks/NotificationStack";
-import ProfileStack from "./main_stacks/ProfileStack";
+import FeedStack from "./stacks/FeedStack";
+import MarketStack from "./stacks/MarketStack";
+import CommunityStack from "./stacks/CommunityStack";
+import PortfolioStack from "./stacks/PortfolioStack";
 
 export default createBottomTabNavigator(
   {
     Feed: FeedStack,
-    Video: VideoStack,
-    Notification: NotificationStack,
-    Profile: ProfileStack
+    Market: MarketStack,
+    Community: CommunityStack,
+    Portfolio: PortfolioStack
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -27,19 +22,17 @@ export default createBottomTabNavigator(
           return (
             <MaterialIcons name={`subscriptions`} size={25} color={tintColor} />
           );
-        else if (routeName === "Video")
-          return <Entypo name={`youtube`} size={25} color={tintColor} />;
-        else if (routeName === "Notification")
+        else if (routeName === "Market")
           return (
-            <Ionicons name={`ios-notifications`} size={25} color={tintColor} />
+            <MaterialIcons name={`subscriptions`} size={25} color={tintColor} />
           );
-        else if (routeName === "Profile")
+        else if (routeName === "Community")
           return (
-            <MaterialCommunityIcons
-              name={`account`}
-              size={25}
-              color={tintColor}
-            />
+            <MaterialIcons name={`subscriptions`} size={25} color={tintColor} />
+          );
+        else if (routeName === "Portfolio")
+          return (
+            <MaterialIcons name={`subscriptions`} size={25} color={tintColor} />
           );
       }
     }),

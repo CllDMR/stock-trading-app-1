@@ -1,10 +1,10 @@
 import { createStackNavigator } from "react-navigation-stack";
 
-import VideoScreen from "../../screens/Video";
+import FeedScreen from "../../screens/Feed";
 
-const VideoStack = createStackNavigator(
+const FeedStack = createStackNavigator(
   {
-    Video: VideoScreen
+    Feed: FeedScreen
   },
   {
     defaultNavigationOptions: {
@@ -13,4 +13,4 @@ const VideoStack = createStackNavigator(
   }
 );
 
-export default VideoStack;
+export default FeedStack;

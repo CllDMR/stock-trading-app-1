@@ -1,15 +1,5 @@
 import React, { Component } from "react";
-import {
-  Dimensions,
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  Image,
-  TextInput
-} from "react-native";
-
-import Button from "../components/Button";
+import { Dimensions, StyleSheet, Text, View, SafeAreaView } from "react-native";
 import { NavigationStackProp } from "react-navigation-stack";
 
 const { height, width } = Dimensions.get("window");
@@ -18,17 +8,24 @@ type Props = {
   navigation: NavigationStackProp;
 };
 
-export class ProfileScreen extends Component<Props> {
+type State = {};
+
+export class CommunityScreen extends Component<Props, State> {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
         <View
           style={[
             styles.container,
-            { justifyContent: "center", alignItems: "center", padding: 35 }
+            { justifyContent: "center", alignItems: "center" }
           ]}
         >
-          <Text style={styles.text}>Profile Screen</Text>
+          <Text style={styles.text}>Community Screen</Text>
         </View>
       </SafeAreaView>
     );
@@ -40,9 +37,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#000"
   },
-  text: {
-    color: "white"
-  }
+  text: { color: "white" }
 });
 
-export default ProfileScreen;
+export default CommunityScreen;
