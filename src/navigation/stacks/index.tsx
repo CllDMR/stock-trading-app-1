@@ -9,8 +9,8 @@ import PortfolioStack from "./Portfolio";
 
 export default createBottomTabNavigator(
   {
-    Market: MarketStack,
     Feed: FeedStack,
+    Market: MarketStack,
     Community: CommunityStack,
     Portfolio: PortfolioStack
   },
