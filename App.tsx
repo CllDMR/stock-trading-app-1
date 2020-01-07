@@ -1,8 +1,10 @@
 import React from "react";
-import { Platform, StatusBar, StyleSheet, View, Image } from "react-native";
+import { Platform, StatusBar, View, Image } from "react-native";
 import { AppLoading, SplashScreen } from "expo";
 import { Asset } from "expo-asset";
-import AppNavigator from "./navigation/AppNavigator";
+import { Provider } from "react-redux";
+import AppNavigator from "./src/navigation";
+import makeStore from "./src/redux/store";
 
 type Props = {};
 
@@ -12,7 +14,7 @@ type State = {
 };
 
 class App extends React.Component<Props, State> {
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
@@ -47,10 +49,10 @@ class App extends React.Component<Props, State> {
     }
 
     return (
-      <>
+      <Provider store={makeStore(undefined)}>
         {Platform.OS === "ios" && <StatusBar barStyle="light-content" />}
         <AppNavigator />
-      </>
+      </Provider>
     );
   }
 
@@ -74,11 +76,5 @@ class App extends React.Component<Props, State> {
     this.setState({ isAppReady: true });
   };
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-});
 
 export default App;
